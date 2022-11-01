@@ -1,24 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { LoginForm } from './pages/LoginForm';
+import { StartSida } from './pages/StartSida';
+import { useState } from 'react';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Routes>
+      <Route path='/' element={<StartSida />} />
+      <Route path='/login' element={<LoginForm />} />
+      <Route path='/bonk' element={<p>BONK!</p>} />
+      <Route path='/bink' element={<p>BINK!!</p>} />
+      <Route path='/bunk' element={<p>BUNK!!!</p>} />
+    </Routes>
+    </>
   );
 }
 
