@@ -24,7 +24,7 @@ export const LoginForm = (props) => {
 
     responce = await fetch(`${process.env.REACT_APP_BASE_URL}/api/auth/whoami?token=${token}`)
     let user = await responce.json();
-    setLoggedInUser(user);
+    setLoggedInUser(user); //note to selfs, vid felaktigt inollg sätts felmedelandet som en user, det kanske inte är idealt...
     console.log(user);
 
   }

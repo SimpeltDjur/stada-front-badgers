@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { LoginForm } from './LoginForm';
+import { MyPage } from './MyPage';
 
 export const StartSida = () => {
 
@@ -11,7 +12,7 @@ export const StartSida = () => {
     {loggedInUser 
       ?
         <div>
-          <h1>{loggedInUser.appUserName}'s Page</h1>
+          <MyPage appUser={loggedInUser} />
         </div>
       :
         <div>
