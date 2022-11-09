@@ -7,17 +7,17 @@ export const MyPage = (props) => {
 
   const [bookings, setBookings] = useState([])
 
+  const fetchBookings = async () => {
+    let responce = await fetch(`${process.env.REACT_APP_BASE_URL}/bookings/get/${"1"}`, { // OBS HÅRDKODAD
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${appUser.token}`
+      }
+    })
+    let bookings = await responce.json()
+    setBookings(bookings)
+}
   useEffect(() => {
-    const fetchBookings = async () => {
-        let responce = await fetch(`${process.env.REACT_APP_BASE_URL}/bookings/get/${"1"}`, { // OBS HÅRDKODAD
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${appUser.token}`
-          }
-        })
-        let bookings = await responce.json()
-        setBookings(bookings)
-    }
     fetchBookings()
   }, [])
 
@@ -26,7 +26,13 @@ export const MyPage = (props) => {
     <h1>{appUser.appUserName}'s Page</h1>
     <div>
       <ul>
-        {bookings.map(booking => <li><Booking id={booking.id} appUserName={booking.appUserName} status={booking.status}date = {booking.date}time = {booking.time}accepted = {booking.accepted}/></li>)}
+        {bookings.sort((a, b) => a.id > b.id ? 1 : -1)
+        .map(booking => 
+          <li key={booking.id}>
+            <Booking id={booking.id} appUserName={booking.appUserName} status={booking.status} 
+              date = {booking.date} time = {booking.time} accepted = {booking.accepted} appUser={appUser}
+              fetchBookings={fetchBookings}/>
+          </li>)}
       </ul>
     </div>
     </>
