@@ -8,7 +8,7 @@ export const MyPage = (props) => {
   const [bookings, setBookings] = useState([])
 
   const fetchBookings = async () => {
-    let responce = await fetch(`${process.env.REACT_APP_BASE_URL}/bookings/get/${"1"}`, { // OBS HÅRDKODAD
+    let responce = await fetch(`${process.env.REACT_APP_BASE_URL}/bookings/get/${appUser.id}`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${appUser.token}`
