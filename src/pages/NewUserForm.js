@@ -7,7 +7,6 @@ export const NewUserForm = () => {
 
   const handleRegistration = async (event) => {
     event.preventDefault();
-    console.log("Hello frontend 1");
 
     let responce = await fetch(`${process.env.REACT_APP_BASE_URL}/user/new`, {
       method: 'POST',

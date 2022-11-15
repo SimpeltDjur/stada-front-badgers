@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Booking } from '../components/Booking'
+import { NewBookingForm } from '../components/NewBookingForm'
 
 export const MyPage = (props) => {
 
@@ -34,6 +35,8 @@ export const MyPage = (props) => {
               fetchBookings={fetchBookings}/>
           </li>)}
       </ul>
+      <NewBookingForm appUser={appUser}/>    
+
     </div>
     </>
   )
