@@ -35,7 +35,6 @@ export const Booking = (props) => {
   return (
     <>
     <h1>Städing #{id}</h1>
-    <p>Bokad av: {appUserName}</p>
     <p>Datum: {date} </p>
     <p>Klockan: {time} </p>
     <p>Status: {status}</p>

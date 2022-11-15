@@ -11,7 +11,7 @@ export const NewBookingForm = (props) => {
   const handleBooking = async (event) => {
     event.preventDefault()
 
-    await fetch(`${process.env.REACT_APP_BASE_URL}/bookings/newbooking`, {
+    let responce = await fetch(`${process.env.REACT_APP_BASE_URL}/bookings/newbooking`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${appUser.token}`,
@@ -23,6 +23,7 @@ export const NewBookingForm = (props) => {
         date: date,
         message: message
       })
+      
     })
   }
 
