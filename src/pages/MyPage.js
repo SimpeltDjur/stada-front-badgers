@@ -36,7 +36,7 @@ export const MyPage = (props) => {
           </li>)}
       </ul>
 
-      <NewBookingForm appUser={appUser}/> 
+      <NewBookingForm appUser={appUser} fetchBookings={fetchBookings}/> 
       
          
 

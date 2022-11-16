@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export const NewBookingForm = (props) => {
 
-  const {appUser} = props
+  const {appUser, fetchBookings} = props
 
   const [date, setDate] = useState("")
   const [time, setTime] = useState("")
@@ -23,8 +23,8 @@ export const NewBookingForm = (props) => {
         date: date,
         message: message
       })
-      
     })
+    fetchBookings()
   }
 
 
